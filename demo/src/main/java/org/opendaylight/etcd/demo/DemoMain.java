@@ -54,8 +54,8 @@ public final class DemoMain {
             System.err.println("USAGE: write|read etcd-server-host:port (list of)\nEXAMPLE: write http://localhost:2379");
             return;
         }
-        String operation = args[0];
-        List<String> endpoints = Lists.newArrayList(args).subList(1, args.length);
+        String operation = args[2];
+        List<String> endpoints = Lists.newArrayList(args).subList(3, args.length);
 
         System.out.println("Operation: " + operation + "; connecting to etcd server/s on: " + endpoints);
         try (Client client = Client.builder().endpoints(endpoints.toArray(new String[0])).build()) {
